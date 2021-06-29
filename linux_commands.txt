@@ -1,0 +1,304 @@
+grep 'user' /etc/passwd: kaiocesarviana:x:1000:1000:Kaio César Viana:/home/kaiocesarviana:/bin/bash -> definição do usuário do sistema
+date: Tue Nov 17 07:34:33 AM -03 2020 -> data do sistema
+pwd: /home/kaiocesarviana/Documents -> exibe diretório de trabalho atual
+hostname: localhost.localdomain -> exibe o nome de host do computador
+ls -l -a -t -> -l:listagem longa; -a:arquivos de ponto oculto; -t:lista por tempo;
+tar -cvf back.tar /home/'user' -> cria um backup, onde, c(create); v(verbose); f(file)
+uname -a: tipo de sistema que está rodando. Ao adicionar -a, exibe o hostname, compilação e a versão do kernel
+cd -> muda para outro diretório
+mkdir -> cria um diretório
+chmod -> altera a permissão sobre um arquivo ou diretório
+ls -ld -> permissões de diretório
+
+# DIRETÓRIOS LINUX
+/bin -> comandos comuns de usuários
+/boot -> contém o kernel inicializável do Linux e os arquivos de configuração do carregador de incialização (GRUB)
+/dev -> contém arquivos que representam os pontos de acesso a dispositivos em seus sistemas.
+	* terminal(tyy*)
+	* disquetes(fd*)
+	* discos rígidos(hd* ou sd*)
+	* RAM(ram*)
+	* CD-ROM(cd*)
+Os usuários podem acessar esses dispositivos diretamente através desses arquivos de dispositivo, mas alguns apps ocultam dos 
+usuários finais o nome dos dispositivos reais.
+
+/etc -> contém arquivos de configuração administrativa.
+/home -> contém diretórios atribuídos a cada usuário regular com uma conta de login.(O usuário root é uma exceção, usando /root
+como seu diretório inicial)
+/media -> fornece uma localização padrão para dispositivos de automontagem(mídia removível em particular). Se o produto possuir
+um nome de volume, esse nome é normalmente usado como ponto de montagem.
+/lib -> contém bibliotecas compartilhadas requeridas por aplicativos em /bin e /sbin para inicializar o sistema
+/mnt -> Um ponto de montagem comum para muitos dispositivos, antes de ser suplantado pelo diretório /media padrão.
+/misc -> Um diretório usado às vezes para montar sistemas de arquivos mediante solicitação.
+/opt -> estrutura de diretórios disponíveis para armazenanr software suplementar.
+/proc -> contém informações sobre os recursos do sistema.
+/root -> representa o diretório do usuário root. O diretório inicial root não resid sob /home por razões de segurança.
+/sbin -> contém comandos administrativos e processos de daemon
+/tmp -> contém arquivos temporários usados pelos aplicativos.
+/usr -> contém a documentação do usuaŕio, jogos, arquivos gráficos(x11), bibliotecas(lib) uma variedade de outros comandos e
+arquivos que não são necessários durante o processo de inicialização.
+/var -> contém diretórios de dados utilizados por vários aplicativos. Em particular, esse é o lugar onde você coloca arquivos
+que você compartilha, como um servidor FTP ou web.
+
+
+# METACARACTERES
+* -> localiza qualquer número de caracteres
+? -> localiza qualquer caractere
+[...] -> localiza qualquer um dos caracteres entre os colchotes, oque pode incluir uma gama de letras ou números separados por hífen
+
+
+# METACARACTERES PARA REDIRECIONAMENTO DE ARQUIVOS
+
+< -> direciona o conteúdo de um arquivo para o comando. Na maioria dos casos, essa é ação padrão esperada pelo comando e o uso do caractere é opcional; utilizar less bigfile é o mesmo que less < bigfile
+> -> direciona a saída padrão de um comando para um arquivo. Se o arquivo existir, o conteúdo dele será sobrescrito.
+2> -> direciona mensagens de erro padrão para o arquivo
+&> -> direciona tanto a saída padrão como o erro padrão para o arquivo.
+>> direcionan a saída de um  commando para um arquivo, adicionando a saída ao final do arquivo existente
+
+
+# Permissões
+r=4
+w=2
+x=1
+A combinação da soma desses valores ditam a permissão aplicada, onde: primeira soma equivale ao proprietário, a segunda ao grupo e o restante aos outros.
+Pode ser feita também através de letras:
+a=all
+u=user
+o=others
+
++=add
+-=sub
+
+r=read
+w=write
+x=exec
+
+exemplo: chmod a -w file => r-xr-xr-x
+
+
+# MOVENDO, COPIANDO E EXCLUINDO ARQUIVOS
+
+mc -> mover
+cp -> copiar
+rm -> apagar
+
+
+# ARQUIVOS DE TEXTO => VIM
+
+w/W -> Move o cursor para o início da próxima palavra
+b/B -> Move o cursor para início da palavra anterior
+0 -> Move o cursor para o início da linha atual
+$ -> Move o cursor para o fim da linha atual
+H -> Move o cursor para o canto superior da tela
+M -> Move o cursor para o canto inferior da tela
+L -> Move o cursor para o canto esquerdo inferior da tela
+
+
+# EXCLUINDO, COPIANDO E ALTERANDO TEXTO
+
+x -> Exclui o caractere sobre o cursor
+X -> Exclui o caractere imediatemente antes do cursor
+d<?> -> Exclui algum texto
+c<?> -> Altera algum texto
+y<?> -> Copia algum texto
+
+O <?> depois de cada letra na lista anterior indentifica o lugar onde você pode utilizar um comando de movimento para escolher o que você está excluindo, alterando ou copiando. Por exemplo:
+
+dw -> Exclui (d) uma palavra (w) após a posição atual do cursor
+db -> Exclui (d) uma palavra (b) antes da posição atual do cursor
+dd -> Exclui (d) toda linha atual (d)
+c$ -> Altera (c) os caracteres a partir do caractere atual até o final da linha atual ($) e entra no modo de entrada
+c0 -> Altera (c) a partir do caractere anterior até o início da linha atual (0) e entra no mode de entrada
+cl -> Apaga (c) a letra atual (l) e entra no modo de entrada
+cc -> Apaga (c) a linha atual (c) e entra no modo de entrada
+yy -> Copia (y) a linha atual (y) para o buffer
+y) -> Copia (y) a sentença atual ()), à direita do cursor, para o buffer
+y} -> Copia (y) a parágrafo atual (}), à direita do cursor, para o buffer
+
+Qualque um dos comandos mostrados somente pode ser modificado usando números, como você pode ver nos exemplos a seguir:
+3dd -> Exclui (d) três linhas (3d), começando na linha atual.
+3dw -> Apaga (d) as próximas três palavras (3w).
+5cl -> Altera (c) as próximas (5) letras (l)
+12j -> Move-se para baixo (j) 12 linhas (12)
+5cw -> Apaga (c) as próximas cinco (5) palavras (w) e entra no mode de entrada
+4y) -> Copia (y) as próximas quatro (4) sentenças ())
+
+
+# COLANDO TEXTO
+
+P -> Coloca o texto copiado à esquerda do cursor se ele contiver letras ou palavras; coloca o texto copiado acima da linha atual se ele contiver linhas de texto
+p -> Coloca o texto em buffer à direita do cursor se ele contiver letras ou palavras; coloca o texto em buffer abaixo da linha atual se ele contiver linhas de texto
+
+
+# SAINDO DO VI
+
+ZZ -> Salva as mudanças atuais no arquivo e sai do vi
+:w -> Salve o arquivo atual, mas continua no modo de edição
+:wq -> O mesmo que ZZ
+:q -> Sai do arquivo atual. Isso só funciona se você não tiver nunhuma alteração
+:q! -> Sai do arquivo atual e não salva as alteração feitas no arquivo
+
+# PROCURANDO TEXTO
+
+/hello -> Pesquisa para frente a palavra hello
+?goodbye -> Pesquisa para trás a palavra goodbye
+?[pP]rint -> pesquisa para trá print ou Print
+
+n/N -> Pra pesquisar para frente ou para trás o mesmo termo de novo, respectivamente
+
+# COMANDO FIND
+
+Comando utilizado para localizar arquivos
+
+find -ls -> lista arquivos de maneira longa
+find -name -> lista arquivos pelo nome
+find -iname -> lista arquivos com qualquer combinação de letras
+find -size -> lista arquivos por tamanho
+find -user -> lista arquivos por usuários
+find -group -> lista arquivos por grupos
+find -perm -> lista arquivos por permissões
+find -not/or -> condicionais
+find -mmin -> lista arquivos por alteração nos últimos minutos
+find -ctime -> lista de acordo com alteração nos comandos em dias
+find -atime -> lista arquivos com alteração em dias
+find -exec -> executa um comando sobre o arquivo encontrado
+find -ok -> pede confirmação antes de executar um coman
+
+
+# GERENCIANDO PROCESSOS EM EXECUCAO
+
+	* Listando processos com o comando ps:
+		ps -> vis�o geral dos processos em execu��o.
+		ps u -> vis�o detalhada dos procesos (quem executou e etc).
+		
+		A coluna STAT representa o estado do processo, com R indicando im processo em execucao e S um processo dormente.
+		A coluna USER exibe o nome do usuario que iniciou o processo. Cada processo e representado por um ID(PID).
+		A coluna VSZ inica o tamanho de processo de imagem e RSS exibe o tamanho do programa na memoria.
+			- VSZ: tamanho de memoria alocada.
+			- RSS: quantidade de memoria sendo utilizada.
+		ps ux -> ver todos processos em execucao do usuario atual.
+		ps aux -> ver todos processos em execucao de todos os usuarios.
+
+
+	* listando e alterando processos com top:
+		O comando top oferece uma maneira orientada para tela de exibir os processos em execucao no sistema.
+		Voce tambem pode usar top para eliminar ou repriorizar um processo.
+		
+		Acoes que voce pode fazer com o top para mostrar informacoes de maneiras diferentes e modificar os processos em execucao:
+			h -> ver as opcoes de ajuda e entao pressione qualquer tecla para retornar a tela de top;
+			M -> ordenar por uso de memoria em vez de CPU e entao pressione P para voltar a ordenar por CPU;
+			1 -> para exibir o uso da CPU de todas as suas CPUs, caso houver mais de uma;
+			R -> para ordenar inversamente sua saida;
+			u -> digite um nome de usuario para exibir processos apenas de um usuario especifico;
+
+
+		Repriorizando um processo:
+			aperte r e informe o ID do processo que dessaja repriorizar.
+			Digite um numero entre -19 e 20;
+
+
+		Eliminando um processo:
+			Observe o ID do processo que voce deseja eleminar e pressione k.
+			Digite 15 para terminar de forma limpa ou 9 para simplesmente eliminar o processo.
+
+
+# GERENCIANDO PROCESSOS EM PRIMEIRO E SEGUNDO PLANOS
+	* Iniciando processos em segundo plano:
+		& -> para colocar um programa em segundo plano no  momento de executá- lo.
+
+	* Utilizando comandos em primeiro e em segundo plano:
+		fg %[numero do job] -> traz a tarefa para o primeiro plano.
+		% -> Referencia o comando mais recente colocado em segundo plano (indicado pelo sinal de mais quando voc� digita o comando jobs)
+		%string -> referencia uma tarefa em que o comando come�a com uma determinada string
+		%?string -> referencia uma tarefa em que a linha de comando cont�m uma string em qualquer ponto. A string n�o deve ser amb�gua.
+		% -- -> referencia uma tarefa anterior parada antes da mais recente parada.
+
+		bg -> inicia um job parado, por exemplo, para rodar em segundo plano. 
+
+
+# ELIMINANDO E REPRIORIZANDO PROCESSOS
+	* Eliminando processos com kill e killall:
+		Embora geralmente usado para terminar um processo em execu�ao, os comando kell e killall podem ser usados para enviar qualquer
+		sinal valido para um processo em execucao.
+
+		SIGKILL(9) -> elimina um processo imediatamente;
+		SIGTERM(15) -> tenta encerrar um processo de forma limpa;
+		SIGHUP(1) -> instrui um processo a reler seus arquivos de config;
+		SIGSTOP(17,19,23) -> para um processo;
+		SIGCONT(19, 18, 25) -> continua um processo, se parado;
+
+
+		Ex's: 
+			kill 10432
+			kill -15 10432
+			kill -SIGKILL 10432
+		
+
+# CONFIGURANDO A PRIORIDADE SOBRE O PROCESSADOR COM NICE E RENICE
+	Cada processo em execucao no sistema tem um valor de nice entre -20 e 19;
+	Voce pode usar o comando nice para executar um comando com um determinado valor de nice.
+	Uma vez que um processo está em execucao, voce pode alterar o valor de nice usando o comando renice,
+	juntamente com o id de processo do processo.
+
+
+# EXECUTANDO SCRIPTS SHELL SIMPLES:
+	Pode-se usar set -x proximo do inicio do script para exibir cada comando que � executado
+	
+
+	* Variaveis shell:
+		Os nome de variaveis dentro de scripts de shell diferenciam maiusculas de minusculas;
+			-> NAME=value
+
+		As variaveis podem conter a saida de um comando ou uma sequencia de comandos.
+		Voce pode fazer isso precedendo o comando com um sina de cifrao e parentese
+		de abertura e seguindo-o com um parentese de fechamento;
+			-> MYDATE=$(date) # ATRIBUI A SAIDA DO COMANDO DATE A VARIAVEL MYDATE;
+
+		Colocar o comando entre (`) pode ter o mesmo efeito. Nesse caso, o comando date
+		éexecutado quando a variavel éconfigurada e nao cada vez que a variavel é lida;
+		
+
+	* Parametros de shell posicionais especiais:
+		Existem variaveis especiais que o shell atribui para voce. Um conjunto de variaveis
+		comumente usado e chamado de parametros posicionais ou argumentos de linha de comando
+		e éreferenciado como:
+			-> $0, $1, $2, $3... $n # $0 RECEBE O NOME USADO PARA CHAMAR O SCRIPT
+
+		Outras variaveis:
+			-> $# # INFORMA QUANTOS PARAMETROS SEU SCRIPT RECEBEU
+			-> $@ # ARMAZENA TODOS OS ARGUMENTOS INSERIDOS NA LINHA DE COMANDO
+			-> $? # RECEBE O STATUS DE SAIDA DO ULTIMO COMANDO EXECUTADO (0, sucesso, !0, erro de qualquer tipo)
+
+
+	Usando o comando read, voce pode pedir informacoes do usuario e, entao, armazenar e usar essas
+	informacoes mais tarde no seu script:
+		-> read -p "asçlorem ipsum:" var1, var2, var3
+
+	
+	
+
+# USANDO CONSTRUCOES DE PROGRAMACAO EM SCRIPTS DE SHELL:
+	* if...then:
+		-> VARIABLE=1
+		   if [ $VARIABLE -eq 1  ] ; then # VERIFICA SE A VARIAVEL E IGUAL A 1, "then"
+		   echo "THE VARIABLE is 1" #ECOA
+		   fi # FINALIZA INSTRUCAO
+
+		-> -eq, equivalente a (=) # funciona melhor para numeros enquanto, =, para strings
+
+		-> STRING="FRIDAY"
+		   if [ $STRING = "FRIDAY"  ] ; then
+		   echo "WhooHoo. Friday."
+	     	   else
+	  	   echo "Will Friday ever get here?"
+		   fi
+
+		-> [ condition ] || action # VERIFICACAO SIMPLES
+
+                -> [ condition  ] && action || action # IF ELSE
+
+
+	* case:
+		
+
+
