@@ -299,6 +299,21 @@ find -ok -> pede confirmação antes de executar um coman
 
 
 	* case:
+		case "VAR" in
+		    result1)
+		        { body };;
+		    result2)
+     		        { body };;
+		    *)
+		        { body };;
+		esac
 		
 
+	* for...do:
+		for VAR in LIST
+		do
+		    { body }
+		done
 
+	
+	
