@@ -317,3 +317,43 @@ find -ok -> pede confirmação antes de executar um coman
 
 	
 	
+# ENTENDENDO A ADMINISTRACAO DO SISTEMA:
+	* Comando su -> Muitas vezes su e usado para abrir um shell como usuario root. Com esse shell
+	  aberto, o administrador pode executar varios comandos e depois sair para voltar para um shell
+	  como um usuario regular.
+
+	* Comando sudo -> Com sudo, um usuario regular tem privilegio de root, mas apenas quando
+	  executa o comando sudo. Depois de executar esse comando e depois sair para voltar para um shell
+	  como um usuario regular.
+
+	* Janelas graficas -> Muitas Janelas graficas de administracao, as quais podem ser iniciadas a partir
+	  do menu System ou Applications, podem tambem ser iniciadas por um usuario regular.
+	  Quando privilegios de root sao necessarios, a senha de root sera solicitada.
+
+
+	* Caracteristicas comumns que um administrador de sistema devera gerencias:
+		-> Sistemas de arquivos - Quando voce instala o Linux, a estrutura de diretorios esta configurada
+		   para tornar o sistema utilizavel. Mas se mais tarde voce quiser adcionar armazenamento extra ou
+		   mudar o layout do sistema de arquivos, precisa de privilegios administrativos para fazer isso.
+
+		-> Instalacao de software - Como os softwares maliciosos podem danificar seu sistema ou torna-lo
+		   inseguro, voce precisa ter privilegios de root para instalar softwares de modo que estejam
+		   disponiveis para todos os usuarios de seu sistema.
+
+		-> Contas de usuario - Somente o usuario root pode adicionar e remover contas de usuario e de
+		   grupo.
+
+		-> Interfaces de rede - Costumava ser totalmente de responsabilidade do usuario root configurar
+		   interfaces de rede, bem como iniciar e parar essas interfaces. Agora, muitos desktops Linux
+		   permitem que usuarios regulares iniciem e parem interfaces de rede a partir de dua area de 
+		   trabalho usando o Nerwork Manager.
+
+		-> Servidores - Configurar servidores web, de arquivos, de nome de dominio, de email e dezenas
+		   de outros servidores requer privilegios de root, assim como iniciar e parar servicos. Muitas
+		   vezes, sevicos exevutados como usuarios nao root e conteudo, como paginas da web, podem ser
+		   adicionados a servidores por usuarios nao-root se voce configurar seu sistema para permiti isso.
+
+		-> Recursos de seguranca - A configuracao de recursos de sevuranca, como firewalls e listas de
+		   acesso de usuario, geralmente e feita pelo usuario root. Tambem e de responsabilidade do usuario
+		   root monitorar como os servicos estao sendo usadoes e se certificar de que os recursos do servidor
+		   nao se esgotem nem seja abusados.
