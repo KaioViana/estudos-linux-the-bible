@@ -357,3 +357,25 @@ find -ok -> pede confirmação antes de executar um coman
 		   acesso de usuario, geralmente e feita pelo usuario root. Tambem e de responsabilidade do usuario
 		   root monitorar como os servicos estao sendo usadoes e se certificar de que os recursos do servidor
 		   nao se esgotem nem seja abusados.
+
+
+# USANDO A CONTA DE USUARIO ROOT:
+	* estrutura de conta de usuario:
+
+		-> root:x:0:0:root:/root:/bin/bash
+	
+				
+		campos -> 1� - nome do usuario -> 2º- senha (x) -> 3º- id do usario -> 4º- grupo do usuario -> 5º- nome usuario -> 6º- diretorio inicial -> 7º- shell do usuario.
+
+		
+# EXPLORANDO COMANDOS ADMINISTRATIVOS, ARQUIVOS DE CONFIGURACAO E LOGS:
+	* Comandos administrativos: 
+		Muitos comandos administrativos foram concebidos para serem usados somente pelo usario root.
+		Quando voce efetua login como root, sua variavel $PATH esta definida para incluir alguns diretorios que contem comandos para o usuario root. Elas
+		incluem o seguinte:
+
+			-> /sbin - Contem comandos necessarios para iniciar seu sistema, incluindo comandos para verificar sistemas de arquivos (fsck) e iniciar/parar servicos do sistema (service)
+
+			-> /usr/sbin - Contem comandos para coisas como gerenciar contas de usuario(como useradd) e verificar processos que estao segurando arquivos abertos(como lsof). Comandos
+			   que sao executados como processos daemon tambem estao contidos nesse diretorio. Processos daemon sao processos que rodam em segundo plano, a espera de requisicoes de servicos
+		           como os para acessar um impressora ou uma pagina da web. (Olhe para os comandos que terminan em d, como sshd, pppd, cupsd). 
