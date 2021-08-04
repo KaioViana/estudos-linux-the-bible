@@ -379,3 +379,49 @@ find -ok -> pede confirmação antes de executar um coman
 			-> /usr/sbin - Contem comandos para coisas como gerenciar contas de usuario(como useradd) e verificar processos que estao segurando arquivos abertos(como lsof). Comandos
 			   que sao executados como processos daemon tambem estao contidos nesse diretorio. Processos daemon sao processos que rodam em segundo plano, a espera de requisicoes de servicos
 		           como os para acessar um impressora ou uma pagina da web. (Olhe para os comandos que terminan em d, como sshd, pppd, cupsd). 
+
+	* Arquivos de configuracao administrativa:
+		$HOME -> Todos os usuarios armazenam informacoes em seus diretorios iniciais, que determinam
+			 como suas contas de login se comportam. Varios arquivos de configuracao estao diretamente no
+			 diretorio inicial  de cada usuario (como /home/joe) e comecam com um ponto (.), de tal modo
+			 que eles nao aparecem no diretorio quando voce usa um comando ls padrao.
+		    	 Da mesma maneira, arquivos e diretorios ponto nao vao
+			 aparecer na  na maioria das janelas do gerenciador de arquivos por padrao. Ha arquivos ponto que
+			 definen o comportamento do shell de cada usuario, a aparencia e comportamento do desktop e
+			 opcoes utilizadas com seu editor de texto. Ha ate arquivos, como aqueles no diretorio $HOME/.ssh de cada usuario, configuram
+			permissoes de rede para cada usuario.
+
+		/etc -> Esse diretorio contem a maioria dos arquivos de configuracao de sistema basicos do Linux. A Tabela 8.1 mostra alguns arquivos de configuracao /etc de interesse.
+		
+		/etc/cron* -> Diretorios nesse conjinto contem arquivos que definem como o utilitario
+			      crond executa aplicatios com base em uma agenda diario (cron.daily), de hora em hora
+			      mensal ou semanal.
+
+		/etc/cups -> Contem arquivos usados para configurar o servico de impressao CUPS.
+
+		/etc/default -> Contem arquivos que definem valores padrao para diversas utilidades. Por
+			        exemplo, o arquivo para o comando useradd define o numero do grupo padrao, o diretorio
+				inicial, a data de expiracao de senha, o shell e o diretorio esqueleto (/etc/skel) que sao
+				utilizados para criar uma nova conta de usuario.
+
+
+		/etc/httpd -> Contem uma variedade de arquivos usados para configurar o comportamento de seu servidor web Apache
+			      Em algus sistemas Linux, o diretorio /etc/apache ou /etc/apache2  e usado.
+
+		/etc/init.d -> Contem as copias permanentes dos scripts de nivel de execucao no estilo
+			       system V. Esses scripts sao muitas vezes linkados a partir dos diretorios /etc/rc?.d para ter
+			       cada servico associado a um script iniciado ou parado para o nivel de exevucao especifico. O ?
+			       e substituido pelo numero do nivel de execucao
+
+		/etc/mail -> Contem arquivos usados para configurar o agente de transport de email sedmail.
+
+		/etc/pcmcia -> Contem arquivos de configuracao que permitem que voce tenha uma variedade de cartoes pcmcia configurados para seu conputador.
+
+		/etc/postfix -> Contem qqrquivos de configuracao para o agente de transporte de email postfix.
+
+		/etc/ppp -> Contem diversos arquivos de configuracao usados para configurar o Point-to-Point Protocl (PPP), o qual permite fazer uma conexao discada com a internet.
+		
+		/etc/rc?.d -> Ha um diretorio rc?.d separado para cada estado valido  do sistema: rc0.d(desligado), rc1.d(monousuario), rc2.d(multiusuario), rc3.d(multiusario mais rede), rc4.d(definido pelo usuario)
+			      rc5.d(multiusuario, rede e login GUI) e rc6.d(reboot).
+
+		/etc/security -> Contem arquivos que definem uma variedade de condicoes de seguranca padrao para seu computador, basicamente definido como a autenticacao e feita. Esses arquivos sao parte do pacote pam
