@@ -425,3 +425,68 @@ find -ok -> pede confirmação antes de executar um coman
 			      rc5.d(multiusuario, rede e login GUI) e rc6.d(reboot).
 
 		/etc/security -> Contem arquivos que definem uma variedade de condicoes de seguranca padrao para seu computador, basicamente definido como a autenticacao e feita. Esses arquivos sao parte do pacote pam
+		
+		/etc/skel -> Todos os arquivos contidos nesse diretorio sao automaticamente copiados para o diretorio inicial do usuario quando este e adicionado ao sistema. Por padrao, a maioria desses arquivos sao	
+		arquivos ponto, como .kde(um diretorio para definir padroes do desktop KDE) e .bashrc (para definir os valores padrao utilizados com o shell bash).
+
+		/etc/sysconfig -> Contem arquivos importantes do sistema de configuracao qque sao criados e mantidos por varios servicos (incluindo iptables, samba e a maioria dos servicos de rede).
+		Esses arquivos sao essenciais para distribuicoes Linux, como Fedora e o RHEL, que usam ferramentas de interface grafica, mas nao sao usados em outros sistemas Linux.
+
+		/etc/xinetd.d -> Contem um conjunto de arquivos, m que cada um deles define um servico de rede por demanda que o daemon xinetd escuta em uma porta especifica. Quando o processo de daemon xinetd recebe
+		uma requisicao de um servico, ele usa as informacoes contidas nesses arquivos para determinar qual daemon processar para comecar a lidar com a requisicao.
+
+
+		A SEGUIR SAO APRENSENTADOS ALGUNS ARQUIVOS DE CONFIGURACAO INTERESSANTES EM /etc:
+
+		aliases -> Pode conter listas de distribuicao utilizadas pelo servico de e-mail Linux. (esse arquivo pode estar localizado em /etc/mail.)
+
+		bashrc -> Define todos os padroes de nivel de sistema para usuarios do shell bash. (Isso pode ser chamado bash.bashrc em algumas distribuicoes Linux.)
+
+		crontab -> Configura a data e a hora para a execucao de tarefas automatizadas e variaveis associadas com o recurso cron (como o SHELL e PATH associado com o cron).
+
+		csh.cshrc(ou cshrc) -> Configura padroes de nivel de sistema para usuarios do csh(shell C)
+
+		exports -> Contem uma lista de diretorios locais que estao disponiveis para serem compartilhados por computadores remotos usando o Network File System(NFS).
+
+		fstab -> Identifica o s dispositivos de midia de armazenamento comuns (disco rigido, disquete, CD-ROM etc.) e os locais onde sao montados no sistemas Linux. Isso e usado pelo comando mount para escolher
+		quais sistemas de arquivos devem ser montados primeiro na inicializacao do sistema.
+
+		group -> Identifica os nomes e IDs de grupo (GID) que estao definidos no sistema. As permissoes de grupo no Linux sao definidas pelo segundo de tres conjustos de bits rwx (leitura, gravacao, execucao)
+		associados com cada arquivo e diretorio.
+
+		gshadow -> Contem senhas de sombra para grupos.
+
+		host.conf -> Usado por aplicativos mais antigos para definir os locais em que os nomes de dominio (por exemplo, redhat.com) sao procurados em redes TCP/IP(como a internet). Por padrao, o arquivo hosts local e
+		procurado e, entao, qualquer entrada de servidor de nomes em resolv.conf.
+
+		hosts -> Contem enderecos IP e nomes de host que voce pode alcancar a partir de seu computador. (Normalmente, esse arquivo e usado apenas para  armazenar o nomes de computadores em sua rrede local ou pequena rede privada.)
+
+		hosts.allow -> Lista computadores host que estao autorizados a utilizar determinados servicos TCP/IP do computador local.
+
+		host.deny -> Lista computadores hos que nao estao autorizados a ultilizar determinados servicos TCP/IP do computador local(embora esse arquivo seja usado se voce cria-lo, ele nao existe por padrao).
+
+		inittab -> Contem informacoes que definem quais programas iniciam e param quando o Linux e inicializado, e desligado ou entra em diferentes estados no meio disso. Esse arquivo de configuracao e o primeiro a ser lido
+		quando o Linux inicia o processo init.
+
+		mtab -> Contem uma lista de sistemas de arquivos que estao atualmente montados.
+
+		mtools.conf -> Contem configuracoes usadas por ferraments DOS no Linux.
+
+		named.conf -> Contem configuracoes de DNS, se voce estiver executando seu proprio servidor DNS.
+
+		nsswitch.conf -> Contem configuracoes de troca do servico de nomes, para identificar de onde(host local ou via servicos de rede) vem as informacoes de sistemas criticos (contas de usuario, mapeamentos de nome de host/endereco.)
+
+		ntp.conf -> Inclui informacoes necessarias para executar o Network Time Protocol(NTP).
+
+		passswd -> Armazena informacoes de contas de todos os usuarios validos no sistema. Tambem inclui outras informacoes, como o diretorio inicial e  o shel padrao	
+	
+
+
+
+
+
+
+
+
+
+
