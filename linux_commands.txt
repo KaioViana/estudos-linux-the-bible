@@ -478,11 +478,36 @@ find -ok -> pede confirmaÃ§Ã£o antes de executar um coman
 
 		ntp.conf -> Inclui informacoes necessarias para executar o Network Time Protocol(NTP).
 
-		passswd -> Armazena informacoes de contas de todos os usuarios validos no sistema. Tambem inclui outras informacoes, como o diretorio inicial e  o shel padrao	
+		passswd -> Armazena informacoes de contas de todos os usuarios validos no sistema. Tambem inclui outras informacoes, como o diretorio inicial e  o shel padrao. Raramente inclui as senhas em si que são armazenadas no arquivo etc/        shadow.	
+
+		printcap -> Contém definições para as impressoras configuradas no seu computador. (Se o aquivo printcap não existir, procure informações sobre a impressora no diretório /etc/cups)
+
+		profile -> Define o ambiente no nível de sistema e os programas de inicialização para todos os usuários. Esse arquivo é lido quando o usuário efetua login.
 	
+		protocols -> Configura números e nome de protocolo para uma variedade de serviços de internet
 
+		rpc -> Define os nome e números das chamadas de procedimento remoto.
 
+		services -> Define nomes e serviços de TCP/IP e UDP e suas atribuições de portas.
 
+		shadow -> Contém senhas criptografadas para usuários que estão definidos no arquivo passwd.
+
+		shells -> Lista os interpretadores de linha de comando de shell (bash, sh, csh etc.) que estão disponíveis no sistema, bem como suas localizações.
+	
+		sudoers -> Configura comandos que podem ser executados por usuários, que exceto por isso não tem permissão para executar o comando, usando o comando sudo. Em particular, esse arquivo é utilizado para fornecer a usuários
+		selecionados permissão de root.
+
+		rsyslog.conf -> Define quais mensagens de log são coletadas pelo daemon syslogd e quais arquivos são armazenados. (Normalmente, as mensagens de log são armazenadas em arquivos contidos no diretório /var/log)
+
+		termcap -> Lista definições para os terminais de caracteres, de modo que aplicativos baseados em caracteres saibam quais recursos são suportados por um dado terminal. Terminais gráficos e aplicações tornaram esse arquivo
+		obsoleto para a maioria das pessoas.
+
+		xinetd.conf -> Contém informações de configuração simples usados pelo processo daemon xinetd. Esse arquivo em sua maior parte aponta para o diretório /etc/xinetd.d para obter informações sobre serviços individuais.
+
+		
+
+# VERIFICANDO E CONFIGURANDO O HARDWARE
+	
 
 
 
