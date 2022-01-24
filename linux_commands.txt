@@ -508,6 +508,11 @@ find -ok -> pede confirmaÃ§Ã£o antes de executar um coman
 
 # VERIFICANDO E CONFIGURANDO O HARDWARE
 	
+	-> dmesg => mensagens de inicialização do sistema (qual hardware foi detectado e quais drivers foram carregados pelo kernek durante a inicialização. Potenciais problemas também);
+	-> lspci => lista barramentos PCI em seu computador e os dispositivos conectados a eles(parâmetro -vvv dá mais detalhes do dispositivos);
+	-> lsusb => lista informações sobre hubs USB do computador, juntamente com todos os dispositivos USB conectados às portas USB do computador
+	-> lscpu => Esse comando fornece informações básicas sobre os processadores do seu computador;
+	
 
 
 
